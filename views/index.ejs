@@ -3,10 +3,42 @@
         <!-- title here is in EJS syntax from server -->
         <title><%= title %></title>
         <link rel="stylesheet" href="/css/index.css">
+        <link rel="stylesheet" href="/css/buttons.css">
     </head>
     <body>
         <!-- body here is in EJS syntax passed from server -->
-        <%= body %>
-        <script src="/js/index.js"></script>
+        <%if(has_token == true){%>
+        <div class="user">
+            <header class="user__header">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3219/logo.svg" alt="" />
+            </header>
+
+            <form class="form" action="/send">
+                <div class="form__group">
+                    <input type="number" placeholder="Account Number" class="form__input" required/>
+                </div>
+
+                <div class="form__group">
+                    <input type="number" placeholder="Amount (PHP)" step="0.01" class="form__input" pattern="^\d+(?:\.\d{1,2})?$" required/>
+                </div>
+
+                <button class="btn" type="submit">
+                    Transfer
+                </button>
+            </form>
+        </div>
+
+        <%}else{%>
+            <div class="user">
+                <header class="user__header">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3219/logo.svg" alt="" />
+                    <br><br><br>
+                    <a href='<%= redirect_link %>' class="button button-royal button-pill button-jumbo">
+                        <span>Login to Transfer</span>
+                    </a>
+                </header>
+            </div>
+        <%}%>
+        <script src="/js/index.js" />
     </body>
 </html>
