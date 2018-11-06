@@ -68,30 +68,7 @@ app.get('/', function(req, res){
 });
 
 app.get('/send', function(req, res) {
-    res.send(`
-        <html>
-            <head>
-                <link rel="stylesheet" href="/css/index.css">
-                <link rel="stylesheet" href="/css/buttons.css">
-            </head>
-            <body>
-                <div class="user">
-                    <header class="user__header">
-                        <h1 class="user__title">
-                            Payment Verified!
-                        </h1>
-                        <br>
-                        <img src="https://img.icons8.com/ios/1600/ok.png" width="128" height="128">
-                        </img>
-                        <br><br>
-                        <a class="button button-royal button-pill button-normal" href="http://aboitiz2018.gigamike.net/member">
-                            Return to Dashboard
-                        </a>
-                    </header>
-                </div>
-            </body>
-        </html>
-    `);
+    res.redirect('http://aboitiz2018.gigamike.net/member')
 });
 
 app.use('/oauth', oauth);
