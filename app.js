@@ -68,7 +68,7 @@ app.get('/', function(req, res){
 });
 
 app.get('/send', function(req, res) {
-    res.redirect('http://aboitiz2018.gigamike.net/member')
+    res.redirect('http://aboitiz2018.gigamike.net/member/paid')
 });
 
 app.use('/oauth', oauth);
